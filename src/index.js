@@ -1,11 +1,12 @@
 const express = require('express');
+
 const api = express();
 
+const morgan = require('morgan');
 const routes = require('../src/application/routes');
 const config = require('../config');
-const morgan = require('morgan');
 
-const middlewares = new(require('../src/application/middlewares'));
+const middlewares = new (require('../src/application/middlewares'))();
 
 api.use(morgan(config.logging));
 api.use(express.json());
@@ -14,5 +15,5 @@ api.use(middlewares.notFound);
 api.use(middlewares.serverError);
 
 api.listen(config.port, () => {
-	console.info(`Server running on PORT ${config.port} (${config.env})`);
+  console.info(`Server running on PORT ${config.port} (${config.env})`);
 });
