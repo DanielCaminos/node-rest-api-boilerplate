@@ -17,10 +17,10 @@ let userController = {
       const users = data.users ; 
       const aux = users.filter(d => d.is_active = true);
       aux.sort(function (a, b) {
-        if (a.name > b.name) {
+        if (a.lastname > b.lastname) {
           return 1;
         }
-        if (a.name < b.name) {
+        if (a.lastname < b.lastname) {
           return -1;
         }
         return 0;
